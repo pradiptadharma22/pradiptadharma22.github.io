@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery of Her 🌷</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(180deg, #ffffff, #fff9fc, #ffffff);
+      color: #444;
+      overflow-x: hidden;
+    }
+
+    header {
+      text-align: center;
+      padding: 80px 20px 40px;
+    }
+
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+      color: #333;
+    }
+
+    header p {
+      font-style: italic;
+      color: #777;
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: 10px auto;
+      line-height: 1.8;
+    }
+
+    .ornament {
+      font-size: 1.6rem;
+      color: #f7a7c4;
+      margin-top: 10px;
+    }
+
+    /* Gallery */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 20px;
+      width: 90%;
+      max-width: 1200px;
+      margin: 60px auto;
+    }
+
+    .photo {
+      background: #fff;
+      border: 4px double #ffe4f0;
+      border-radius: 15px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+      transition: all 0.4s ease;
+    }
+
+    .photo:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .photo img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      border-bottom: 3px solid #ffeef5;
+    }
+
+    .photo-caption {
+      text-align: center;
+      font-size: 0.95rem;
+      color: #555;
+      padding: 8px 0 10px;
+      font-style: italic;
+    }
+
+    /* Little corner flowers */
+    .corner-flower {
+      position: absolute;
+      width: 28px;
+      opacity: 0.7;
+    }
+
+    .top-left { top: 4px; left: 4px; transform: rotate(-15deg); }
+    .top-right { top: 4px; right: 4px; transform: rotate(15deg); }
+    .bottom-left { bottom: 4px; left: 4px; transform: rotate(15deg); }
+    .bottom-right { bottom: 4px; right: 4px; transform: rotate(-15deg); }
+
+    /* Letter Section */
+    .letter-section {
+      background: linear-gradient(180deg, #fff, #fff8fb);
+      padding: 80px 20px;
+      text-align: center;
+      position: relative;
+    }
+
+    .letter-section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      color: #e88eb0;
+      margin-bottom: 20px;
+    }
+
+    .letter-section p {
+      font-size: 1.05rem;
+      color: #555;
+      max-width: 800px;
+      margin: auto;
+      line-height: 1.9;
+      background: #fff;
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 5px 25px rgba(0, 0, 0, 0.06);
+    }
+
+    /* ABOUT HER */
+    .about-her {
+      text-align: center;
+      padding: 120px 20px;
+      background: #ffffff;
+      max-width: 900px;
+      margin: auto;
+      position: relative;
+    }
+
+    .about-her h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4em;
+      color: #e88eb0;
+      margin-bottom: 25px;
+    }
+
+    .about-her p {
+      color: #555;
+      font-size: 1.1em;
+      line-height: 1.8em;
+      margin-bottom: 40px;
+    }
+
+    .about-her blockquote {
+      font-style: italic;
+      color: #777;
+      font-size: 1.1em;
+      border-left: 3px solid #ffd6e9;
+      display: inline-block;
+      background: #fff8fb;
+      border-radius: 12px;
+      padding: 15px 25px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 60px 20px;
+      color: #777;
+      font-style: italic;
+      font-size: 0.95rem;
+      background: #fff8fb;
+    }
+
+    /* ANIMATIONS */
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+    /* Animasi kelopak bunga jatuh */
+  .petal {
+    position: fixed;
+    top: -10px;
+    font-size: 20px;
+    animation: fall 8s linear infinite;
+  }
+
+@keyframes fall {
+  0% {
+    transform: translateY(0) translateX(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) translateX(20px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+    @keyframes fadeInUp {
+      from {opacity: 0; transform: translateY(30px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+  
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      color: #777;
+      background: #fff8fb;
+      font-style: italic;
+    }
+
+    /* Music Button */
+    .music-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 25px;
+      background: #ffdaec;
+      border: none;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      font-size: 1.4rem;
+      color: #e88eb0;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      transition: transform 0.3s ease, background 0.3s;
+    }
+
+    .music-btn:hover {
+      transform: scale(1.1);
+      background: #ffe4f2;
+    }
+
+    /* Floating flowers animation */
+    .flower {
+      position: fixed;
+      font-size: 1.8rem;
+      opacity: 0.2;
+      animation: float 10s infinite linear;
+      z-index: -1;
+    }
+
+    .flower:nth-child(1) { top: 10%; left: 5%; animation-delay: 0s; }
+    .flower:nth-child(2) { top: 60%; left: 90%; animation-delay: 2s; }
+    .flower:nth-child(3) { top: 80%; left: 20%; animation-delay: 4s; }
+    .flower:nth-child(4) { top: 30%; left: 70%; animation-delay: 6s; }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+      100% { transform: translateY(0); }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- Floating Flowers -->
+  <div class="flower">🌸</div>
+  <div class="flower">🌷</div>
+  <div class="flower">🌼</div>
+  <div class="flower">🌺</div>
+
+  <header>
+    <h1>Gallery of Her 🌷</h1>
+    <p>Every tulip, every morning shade reminds me of her — her warmth, her laugh, and the way she turns ordinary into poetry.</p>
+    <div class="ornament">🌸🌷🌼</div>
+  </header>
+
+  <!-- Gallery -->
+  <div class="gallery">
+    <div class="photo"><img src="mey1.jpg"><div class="photo-caption">Her laugh 🌸</div></div>
+    <div class="photo"><img src="meyy10.jpg"><div class="photo-caption">Her smile 🌷</div></div>
+    <div class="photo"><img src="mey3.jpg"><div class="photo-caption">Her calm 🌹</div></div>
+    <div class="photo"><img src="mey4.jpg"><div class="photo-caption">Her eyes 🌺</div></div>
+    <div class="photo"><img src="mey5.jpg"><div class="photo-caption">Her charm 💐</div></div>
+    <div class="photo"><img src="meyy12.jpg"><div class="photo-caption">Her glow 🌻</div></div>
+    <div class="photo"><img src="mey7.jpg"><div class="photo-caption">Her beauty 🌸</div></div>
+    <div class="photo"><img src="mey8.jpg"><div class="photo-caption">Her joy 💐</div></div>
+    <div class="photo"><img src="mey9.jpg"><div class="photo-caption">Her warmth 🌺</div></div>
+    <div class="photo"><img src="mey2.jpg"><div class="photo-caption">Her soul 🌷</div></div>
+    <div class="photo"><img src="meyy11.jpg"><div class="photo-caption">Her laugh 🌸</div></div>
+    <div class="photo"><img src="meyy6.jpg"><div class="photo-caption">Her smile 🌹</div></div>
+    
+  </div>
+
+  <!-- Letter -->
+  <div class="letter-section">
+    <h2>A Letter for Her 💌</h2>
+    <p>
+      Hi,
+
+I know our relationship isn’t always perfect. Sometimes we misunderstand each other, sometimes we just get tired. But through it all, I just want you to know one thing — I’m still grateful that you’re in my life.
+
+You’re not just someone I love, but also someone who’s taught me about patience, understanding, and what it really means to love.
+I don’t need big words to describe how I feel. It’s simple: I love you — calmly and sincerely.
+
+Thank you for staying, for understanding, and for being you — just the way you are.
+I hope your days are always filled with good things, and if they ever get heavy, remember… I’m here, always for you.
+ 
+      <br><br>
+      Wherever you are, I hope the world is being kind to you,  
+      the way you’ve always been kind to mine.  
+      <br><br>
+      — from someone who’s lucky to have you.
+      — Yours, always 🌷
+    </p>
+  </div>
+  
+<!-- About Her -->
+  <section class="about-her">
+    <h2>What I Love About Her 🌷</h2>
+    <p>I love the way she smiles — not the kind that tries to impress, but the one that comes naturally, quietly, and somehow makes everything around her feel lighter.
+
+I love the way she listens — not just to my words, but to the silence between them. She understands even when I don’t say a thing.
+
+I love how she cares — not in grand gestures, but in small, simple ways that mean everything.
+The way she remembers little details, the way she worries, the way she makes ordinary moments feel special.
+
+I love that she’s real — not pretending to be perfect, not hiding her flaws, just being herself.
+And maybe that’s what I love most: she doesn’t have to try hard to be loved. She just is.</p>
+    <blockquote>
+      “If love had a gallery, every frame would be her — every flower, every light, every gentle thing that makes life feel like poetry.” 🌸
+    </blockquote>
+  </section>
+
+  <script>
+  function showLetter() {
+    const letter = document.getElementById('loveLetter');
+    letter.style.display = letter.style.display === 'block' ? 'none' : 'block';
+  }
+
+  // Animasi bunga jatuh
+  const petals = ["🌸","🌷","🌼","🌺"];
+  for (let i=0; i<20; i++) {
+    let petal = document.createElement("div");
+    petal.className = "petal";
+    petal.textContent = petals[Math.floor(Math.random() * petals.length)];
+    petal.style.left = Math.random() * 100 + "vw";
+    petal.style.animationDuration = 5 + Math.random() * 5 + "s";
+    petal.style.fontSize = 15 + Math.random() * 15 + "px";
+    document.body.appendChild(petal);
+  }
+</script>
+
+  <footer>
+    <p>Made with hands & heart 💗 — by someone who still smiles when thinking of you 🌸</p>
+  </footer>
+
+  <!-- Music -->
+  <audio id="bgMusic" src="kasih.mp3" autoplay loop></audio>
+  <button class="music-btn" onclick="toggleMusic()">🎵</button>
+
+  <script>
+    const music = document.getElementById('bgMusic');
+    const btn = document.querySelector('.music-btn');
+    let playing = true;
+    function toggleMusic() {
+      if (playing) { music.pause(); btn.textContent = '🔇'; }
+      else { music.play(); btn.textContent = '🎵'; }
+      playing = !playing;
+    }
+  </script>
+
+</body>
+</html>
